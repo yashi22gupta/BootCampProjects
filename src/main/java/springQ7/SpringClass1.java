@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 public class SpringClass1 {
 
-    void display()
+    void display(Integer i, Integer j)
     {
         System.out.println("Display Method Called.");
     }

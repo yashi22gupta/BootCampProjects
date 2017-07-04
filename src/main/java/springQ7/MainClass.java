@@ -9,7 +9,7 @@ public class MainClass {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-config7.xml");
         SpringClass1 springClass1 = applicationContext.getBean(SpringClass1.class);
-        springClass1.display();
+        springClass1.display(6,9);
     }
 }
 

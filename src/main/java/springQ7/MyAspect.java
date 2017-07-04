@@ -8,10 +8,17 @@ import org.aspectj.lang.annotation.Before;
 @Aspect
 public class MyAspect {
 
-    @Before("execution(* springQ7.SpringClass1.*())")
+    @Before("execution(* springQ7.SpringClass1.*(*,*))")
     void beforeAdvice(JoinPoint joinPoint) {
         System.out.println("Running before advice");
+
         System.out.println(joinPoint.getSignature());
+        Object [] objects=joinPoint.getArgs();
+        System.out.println("Arguments are: ");
+        for (Object object:objects){
+            System.out.println(object);
+        }
     }
+
 
 }
