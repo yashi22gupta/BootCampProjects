@@ -1,4 +1,5 @@
-package spring;
+
+package springQ1;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -11,3 +12,5 @@ public class MainClass {
         springClass1.display();
     }
 }
+
+
