@@ -10,6 +10,6 @@ public class MyAspect {
     @Before("execution(* springQ1.SpringClass1.*())")
     public void invokeMethod()
     {
-        System.out.println("Method Called Through Aspect.");
+        System.out.println("Method Called Via Aspect.");
     }
 }
