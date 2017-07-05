@@ -1,4 +1,4 @@
-package springTX_Q4;
+package springTX_Q6;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
@@ -16,6 +16,9 @@ public class TransferAmount {
     @Autowired
     private
     AccountService accountService;
+    @Autowired
+    private TransactionService transactionService;
+
 
     public AccountService getAccountService() {
         return accountService;
@@ -26,8 +29,7 @@ public class TransferAmount {
     }
 
     @Transactional(propagation = Propagation.NEVER)
-    public void transfer(String senderName, String receiverName, Double amount)
-    {
+    public void transfer(String senderName, String receiverName, Double amount){
         UserAccount sender= accountService.getUserEntry(senderName);
         UserAccount reciever= accountService.getUserEntry(receiverName);
 
@@ -35,6 +37,7 @@ public class TransferAmount {
        {
            accountService.updateEntry(senderName,sender.getBalance()-amount);
            accountService.updateEntry(receiverName,reciever.getBalance()+amount);
+           transactionService.saveTransactions(senderName,receiverName,amount);
        }
 
        else

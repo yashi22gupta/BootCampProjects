@@ -34,7 +34,7 @@ public class AccountService {
          jdbcTemplate.update(sql,userAccount.getName());
     }
 
-@Transactional(propagation = Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
     public UserAccount getUserEntry(String name)
     {
         String sql = "SELECT * FROM userAccount WHERE name = ?";
